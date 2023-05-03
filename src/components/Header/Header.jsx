@@ -7,7 +7,7 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   return (
     <div className="common-color py-2 mb-0 mb-lg-5">
-      <Navbar open={open}>
+      <Navbar open={open} expand="lg">
         <Container>
           <Link to="/" className="navbar-brand  fw-bold fs-3">
             Kitchen House
@@ -29,7 +29,16 @@ const Header = () => {
             <Nav>
               <Link to="/login">
                 {" "}
-                <Button variant="primary">LogIn</Button>
+                <Button className="me-2 mb-3 mb-lg-0" variant="primary">
+                  LogIn
+                </Button>
+              </Link>
+            </Nav>
+            <Nav>
+              {" "}
+              <Link to="/register">
+                {" "}
+                <Button variant="secondary">Register</Button>
               </Link>
             </Nav>
           </Navbar.Collapse>
