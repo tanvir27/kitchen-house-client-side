@@ -10,12 +10,12 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-dark pt-5">
+    <footer className="bg-dark pt-5 mt-0 mt-lg-5 ">
       <Container>
         <Row>
           <Col lg={6} md={6} className="mb-4 mb-lg-0 text-white">
-            <h5 className="text-uppercase mb-4">About Us</h5>
-            <p className=" mb-5">
+            <h5 className="text-uppercase text-center mb-3 fw-bold">About Us</h5>
+            <p className=" mb-4">
               Welcome to our Kitchen House website, where you can find a wide
               range of delicious and healthy recipes for any occasion. Our
               mission is to inspire people to cook and enjoy homemade meals,
@@ -24,8 +24,10 @@ const Footer = () => {
           </Col>
 
           <Col lg={3} md={6} className="mb-4 mb-lg-0 text-white">
-            <h5 className="text-uppercase text-center mb-4">Quick Links</h5>
-            <ul className="list-unstyled text-center">
+            <h5 className="text-uppercase text-center fw-bold mb-4">
+              Quick Links
+            </h5>
+            <ul className="list-unstyled text-white text-center">
               <li className="">
                 <Link className="text-decoration-none" to="/home">
                   Home
@@ -49,9 +51,11 @@ const Footer = () => {
             </ul>
           </Col>
           <Col lg={3} md={6} className="mb-4 mb-lg-0 text-white">
-            <h5 className="text-uppercase text-center mb-4">Connect With Us</h5>
+            <h5 className="text-uppercase text-center fw-bold mb-4">
+              Connect With Us
+            </h5>
             <ul className="list-unstyled text-center">
-              <li>
+              <li className="text-white">
                 <a href="#" className="">
                   <FaFacebookF />
                 </a>
@@ -76,7 +80,7 @@ const Footer = () => {
         </Row>
         <Row className="pb-2">
           <Col md={12}>
-            <p className="text-center text-white">
+            <p className="text-center fw-bold text-white">
               &copy; 2023 Kitchen House Website. All rights reserved.
             </p>
           </Col>
