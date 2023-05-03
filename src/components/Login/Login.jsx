@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import SocialLogin from "../SocialLogin/SocialLogin";
 const Login = () => {
   return (
     <div>
@@ -33,7 +34,10 @@ const Login = () => {
                 </div>
               </Form>
             </div>
-          </div>
+                  </div>
+                  <div>
+                      <SocialLogin></SocialLogin>
+                  </div>
         </Container>
       </section>
     </div>
