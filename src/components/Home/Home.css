@@ -1,8 +1,4 @@
-.banner-section {
-    /* height: 400px; */
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-blend-mode: multiply;
-  
+
+.card-bg-color{
+    background-color: rgba(219, 207, 219, 0.336);
 }

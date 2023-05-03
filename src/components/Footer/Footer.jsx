@@ -1,87 +1,48 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaPinterest,
-} from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-dark pt-5 mt-0 mt-lg-5 ">
-      <Container>
+    <footer className="bg-dark mt-4">
+      <Container className=" text-white text-center pt-4 pb-3">
         <Row>
-          <Col lg={6} md={6} className="mb-4 mb-lg-0 text-white">
-            <h5 className="text-uppercase text-center mb-3 fw-bold">About Us</h5>
-            <p className=" mb-4">
-              Welcome to our Kitchen House website, where you can find a wide
-              range of delicious and healthy recipes for any occasion. Our
-              mission is to inspire people to cook and enjoy homemade meals,
-              whether you're a beginner or an experienced cook.
-            </p>
-          </Col>
+          <Col xs={12} md={4}>
+            <h4>Customer Service</h4>
+            <ul className="list-unstyled">
+              <li>Contact Us</li>
+              <li>Returns</li>
 
-          <Col lg={3} md={6} className="mb-4 mb-lg-0 text-white">
-            <h5 className="text-uppercase text-center fw-bold mb-4">
-              Quick Links
-            </h5>
-            <ul className="list-unstyled text-white text-center">
-              <li className="">
-                <Link className="text-decoration-none" to="/home">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link className="text-decoration-none" to="/blog">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link className="text-decoration-none" to="/login">
-                  LogIn
-                </Link>
-              </li>
-              <li>
-                <Link className="text-decoration-none" to="/register">
-                  Register
-                </Link>
-              </li>
+              <li>FAQs</li>
             </ul>
           </Col>
-          <Col lg={3} md={6} className="mb-4 mb-lg-0 text-white">
-            <h5 className="text-uppercase text-center fw-bold mb-4">
-              Connect With Us
-            </h5>
-            <ul className="list-unstyled text-center">
-              <li className="text-white">
-                <a href="#" className="">
-                  <FaFacebookF />
-                </a>
+          <Col xs={12} md={4}>
+            <h4>About Us</h4>
+            <ul className="list-unstyled">
+              <li>Our Story</li>
+              <li>Blog</li>
+              <li>Reviews</li>
+            </ul>
+          </Col>
+          <Col xs={12} md={4}>
+            <h4>Connect with Us</h4>
+            <ul className="list-unstyled">
+              <li>
+                <FaFacebook /> Facebook
               </li>
               <li>
-                <a href="#" className="">
-                  <FaTwitter />
-                </a>
+                <FaTwitter /> Twitter
               </li>
               <li>
-                <a href="#" className="">
-                  <FaInstagram />
-                </a>
-              </li>
-              <li>
-                <a href="#" className=" ">
-                  <FaPinterest />
-                </a>
+                <FaInstagram /> Instagram
               </li>
             </ul>
           </Col>
         </Row>
-        <Row className="pb-2">
-          <Col md={12}>
-            <p className="text-center fw-bold text-white">
-              &copy; 2023 Kitchen House Website. All rights reserved.
+        <Row className="mt-3">
+          <Col xs={12} className="text-center">
+            <p className="">
+              <i>&copy; 2023 The Kitchen House All Rights Reserved.</i>
             </p>
           </Col>
         </Row>
