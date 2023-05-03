@@ -9,17 +9,14 @@ const Header = () => {
     <div className="common-color py-2 mb-0 mb-lg-5">
       <Navbar open={open} expand="lg">
         <Container>
-          <Link to="/" className="navbar-brand  fw-bold fs-3">
-            Kitchen House
+          <Link to="/" className="navbar-brand text-secondary fw-bold fs-3">
+            <i> Kitchen House</i>
           </Link>
           <Navbar.Toggle onClick={() => setOpen(!open)} />
           <Navbar.Collapse>
-            <Nav className="mx-auto fs-5  gap-4">
+            <Nav className="mx-auto fs-5 fw-bold gap-4">
               <Link to="/" className="nav-link">
                 Home
-              </Link>
-              <Link to="/recipe" className="nav-link">
-                Recipe
               </Link>
 
               <Link to="/blog" className="nav-link">
