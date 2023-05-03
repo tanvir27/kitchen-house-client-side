@@ -44,8 +44,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link className="text-decoration-none" to="/about">
-                  About
+                <Link className="text-decoration-none" to="/register">
+                  Register
                 </Link>
               </li>
             </ul>

@@ -30,7 +30,7 @@ const Header = () => {
               <Link to="/login">
                 {" "}
                 <Button className="me-2 mb-3 mb-lg-0" variant="primary">
-                  LogIn
+                  Log In
                 </Button>
               </Link>
             </Nav>

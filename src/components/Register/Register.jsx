@@ -11,22 +11,30 @@ const Register = () => {
             <Form>
               <Form.Group controlId="formBasicName">
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter your name" />
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your name"
+                  required
+                />
               </Form.Group>
 
               <Form.Group controlId="formBasicPhoto">
                 <Form.Label>Photo URL</Form.Label>
-                <Form.Control type="text" placeholder="Enter your photo URL" />
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your photo URL"
+                  required
+                />
               </Form.Group>
 
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control type="" placeholder="Enter email" required />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control type="password" placeholder="Password" required />
               </Form.Group>
 
               <div className="text-center ">
