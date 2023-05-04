@@ -14,7 +14,7 @@ const Blog = () => {
           <div class="col rounded shadow p-3">
             <div class="card border border-0">
               <div class="card-body">
-                <h5 class="card-title">
+                <h5 class="card-title text-primary">
                   Tell us the differences between uncontrolled and controlled
                   components.
                 </h5>
@@ -31,7 +31,7 @@ const Blog = () => {
           <div class="col rounded shadow p-3">
             <div class="card border border-0">
               <div class="card-body">
-                <h5 class="card-title">
+                <h5 class="card-title  text-primary">
                   How to validate React props using PropTypes?
                 </h5>
                 <p class="card-text">
@@ -51,7 +51,7 @@ const Blog = () => {
           <div class="col rounded shadow p-3">
             <div class="card border border-0">
               <div class="card-body">
-                <h5 class="card-title">
+                <h5 class="card-title  text-primary">
                   Tell us the difference between nodejs and express js.
                 </h5>
                 <p class="card-text">
@@ -70,7 +70,7 @@ const Blog = () => {
           <div class="col rounded shadow p-3">
             <div class="card border border-0">
               <div class="card-body">
-                <h5 class="card-title">
+                <h5 class="card-title  text-primary">
                   What is a custom hook, and why will you create a custom hook?
                 </h5>
                 <p class="card-text">
