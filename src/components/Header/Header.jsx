@@ -1,26 +1,38 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useState } from "react";
 import { Navbar, Nav, Button, Container } from "react-bootstrap";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Header.css";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import tippy from "tippy.js";
+import "tippy.js/dist/tippy.css";
+import { toast } from "react-hot-toast";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = (event) => {
+    event.preventDefault();
+    logOut()
+      .then(() => {
+        toast.success('Log Out Successfully !')
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
+  };
 
-    const navigate = useNavigate();
-    const { user, logOut } = useContext(AuthContext);
-    const handleLogOut = (event) => {
-      event.preventDefault();
-      logOut()
-          .then(() => {
-            navigate('/login')
-        })
-        .catch((error) => {
-          console.error(error.message);
-        });
-    };
+  const buttonRef = useRef(null);
 
+  useEffect(() => {
+    if (user) {
+      tippy(buttonRef.current, {
+        content: user.displayName,
+      });
+    }
+  }, [user]);
 
   return (
     <div className="common-color bg-dark  py-2 mb-0 mb-lg-5">
@@ -71,6 +83,7 @@ const Header = () => {
                     className="img-fluid rounded-circle ms-3"
                     src={user.photoURL}
                     alt=""
+                    ref={buttonRef}
                     style={{ height: "40px", width: "40px" }}
                   />
                 </div>

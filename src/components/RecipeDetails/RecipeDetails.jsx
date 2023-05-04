@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import "react-toastify/dist/ReactToastify.css";
+
 import { Toaster, toast } from "react-hot-toast";
 const RecipeDetails = ({ data }) => {
     const [favorite, setFavorite] = useState(false);

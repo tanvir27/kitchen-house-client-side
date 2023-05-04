@@ -6,26 +6,25 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
-    const { LoginUser, googleLogin, githubLogin } = useContext(AuthContext);
-    const [error, setError] = useState('');
-    const navigate = useNavigate();
-    const location = useLocation();
-    
-    const from = location.state?.from?.pathname || "/";
-    
-    const handleLogin = (event) => {
+  const { LoginUser, googleLogin, githubLogin } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
 
     const email = form.email.value;
     const password = form.password.value;
-        setError("");
-        
+    setError("");
+
     LoginUser(email, password)
-        .then((result) => {
-          toast.success("Log in Successful");
-            navigate(from, { replace: true });
-          
+      .then((result) => {
+        toast.success("Log in Successful");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
@@ -36,9 +35,10 @@ const Login = () => {
   const handleGoogleLogin = (event) => {
     event.preventDefault();
     googleLogin()
-        .then(() => {
-           toast.success("Log in Successful");
+      .then(() => {
+       
         navigate(from, { replace: true });
+         toast.success("Log in Successful");
       })
       .catch((error) => {
         setError(error.message);
@@ -49,9 +49,10 @@ const Login = () => {
     event.preventDefault();
     // console.log(event);
     githubLogin()
-        .then(() => {
-           toast.success("Log in Successful");
+      .then(() => {
+       
         navigate(from, { replace: true });
+         toast.success("Log in Successful");
       })
       .catch((error) => console.log(error.message));
   };
@@ -91,7 +92,11 @@ const Login = () => {
               </Form>
               <div>
                 <p className="text-danger text-center mt-3 fw-bold">
-                  {error ? <span className="p-1 border">Wrong Input & Password </span> : ""}
+                  {error ? (
+                    <span className="p-1 border">Wrong Input & Password </span>
+                  ) : (
+                    ""
+                  )}
                 </p>
               </div>
               <div className="text-center mt-2 text-primary">
