@@ -3,44 +3,47 @@ import { Container, Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 const Register = () => {
-    const { createUser, profileUpdate, logOut } = useContext(AuthContext);
-    const [error, setError] = useState("");
-    const navigate = useNavigate();
+  const { createUser, profileUpdate, logOut } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
-    const handleRegister = (event) => {
-      event.preventDefault();
-      const form = event.target;
-      const name = form.name.value;
-      const photoURL = form.photo.value;
-      const email = form.email.value;
-      const password = form.password.value;
+  const navigate = useNavigate();
 
-      setError("");
-      if (password < 6) {
-        setError("Password Can not be less than 6 character long");
-        return;
-      }
+  const handleRegister = (event) => {
+    event.preventDefault();
+    // validatePassword(password);
+    const form = event.target;
+    const name = form.name.value;
+    const photoURL = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
 
-      createUser(email, password)
-        .then((result) => {
-          profileUpdate(name, photoURL)
-            .then(() => {
-              logOut()
-                .then(() => {
-                  navigate("/login");
-                })
-                .catch((error) => {
-                  console.log(error.message);
-                });
-            })
-            .catch((error) => {
-              setError(error.message);
-            });
-        })
-        .catch((error) => {
-          setError(error.message);
-        });
-    };
+    setError("");
+    if (password < 6) {
+      setError("Password Can not be less than 6 character long");
+      return;
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        profileUpdate(name, photoURL)
+          .then(() => {
+            logOut()
+              .then(() => {
+                navigate("/login");
+              })
+              .catch((error) => {
+                console.log(error.message);
+              });
+          })
+          .catch((error) => {
+            setError(error.message);
+          });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
   return (
     <section className="py-5">
       <Container>
@@ -51,8 +54,8 @@ const Register = () => {
               <Form.Group controlId="formBasicName">
                 <Form.Label>Name</Form.Label>
                 <Form.Control
-                                  type="text"
-                                  name="name"
+                  type="text"
+                  name="name"
                   placeholder="Enter your name"
                   required
                 />
@@ -61,8 +64,8 @@ const Register = () => {
               <Form.Group controlId="formBasicPhoto">
                 <Form.Label>Photo URL</Form.Label>
                 <Form.Control
-                                  type="text"
-                                  name="photo"
+                  type="text"
+                  name="photo"
                   placeholder="Enter your photo URL"
                   required
                 />
@@ -70,18 +73,37 @@ const Register = () => {
 
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" name="email" placeholder="Enter email" required />
+                <Form.Control
+                  type="email"
+                  name="email"
+                  placeholder="Enter email"
+                  required
+                />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" name="password" placeholder="Password" required />
+                <Form.Control
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  required
+                />
               </Form.Group>
 
               <div className="text-center ">
                 <Button className="mt-2 w-25" variant="primary" type="submit">
                   Register
                 </Button>
+              </div>
+              <div>
+                <p className="text-danger text-center mt-3 fw-bold">
+                  {error ? (
+                    <span className="p-1 border"> {error} </span>
+                  ) : (
+                    ""
+                  )}
+                </p>
               </div>
               <div className="text-center mt-2 text-primary">
                 <p>

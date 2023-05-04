@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { FaGithub, FaGoogle, FaMailBulk } from "react-icons/fa";
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
     const { LoginUser, googleLogin, githubLogin } = useContext(AuthContext);
     const [error, setError] = useState('');
-   const navigate = useNavigate();
+    const navigate = useNavigate();
     const location = useLocation();
     
     const from = location.state?.from?.pathname || "/";
@@ -19,22 +19,19 @@ const Login = () => {
 
     const email = form.email.value;
     const password = form.password.value;
-    setError("");
+        setError("");
+        
     LoginUser(email, password)
-      .then((result) => {
-        navigate(from, { replace: true });
+        .then((result) => {
+          toast.success("Log in Successful");
+            navigate(from, { replace: true });
+          
       })
       .catch((error) => {
         setError(error.message);
       });
   };
-//   const managePassword = (event) => {
-//     if (event.target.checked) {
-//       setShow(!show);
-//     } else {
-//       setShow(false);
-//     }
-//   };
+
   // google login
   const handleGoogleLogin = (event) => {
     event.preventDefault();
@@ -49,7 +46,7 @@ const Login = () => {
   //github login
   const handleGithubLogin = (event) => {
     event.preventDefault();
-    console.log(event);
+    // console.log(event);
     githubLogin()
       .then(() => {
         navigate(from, { replace: true });
@@ -90,6 +87,11 @@ const Login = () => {
                   </Button>
                 </div>
               </Form>
+              <div>
+                <p className="text-danger text-center mt-3 fw-bold">
+                  {error ? <span className="p-1 border">Wrong Input & Password </span> : ""}
+                </p>
+              </div>
               <div className="text-center mt-2 text-primary">
                 <p>
                   Don't have any account? Click here to{" "}
@@ -114,6 +116,7 @@ const Login = () => {
           </div>
         </Container>
       </section>
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };

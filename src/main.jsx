@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainLayout from "./components/MainLayout/MainLayout.jsx";
@@ -12,6 +11,7 @@ import Login from "./components/Login/Login.jsx";
 import Recipe from "./components/Recipe/Recipe.jsx";
 import AuthProvider from "./components/AuthProvider/AuthProvider";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+
 
 const router = createBrowserRouter([
   {

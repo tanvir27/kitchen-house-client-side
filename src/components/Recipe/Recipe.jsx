@@ -17,34 +17,52 @@ const Recipe = () => {
     <div>
       <Container>
         <Row>
-          <Col md={4}>
-            <Card className="text-center">
-              <Card.Img variant="top" src={chef_picture} />
+          <Col className="my-auto" md={4}>
+            <Card className="text-center shadow card-bg-color">
+              <Card.Img
+                className="p-3 rounded-5"
+                variant="top"
+                src={chef_picture}
+              />
               <Card.Body>
                 <Card.Title>
                   {" "}
-                  <h3>{chef_name}</h3>{" "}
+                  <h3 className="text-primary fw-bold">{chef_name}</h3>{" "}
                 </Card.Title>
                 <Card.Text>{chef_bio}</Card.Text>
                 <Row>
                   <Col md={4}>
-                    <p>Total Likes: {total_likes}</p>
+                    <p>
+                      <span className="text-primary fw-semibold">
+                        Total Likes:
+                      </span>{" "}
+                      {total_likes}
+                    </p>
                   </Col>
                   <Col md={4}>
-                    <p>No of Recipes: {number_of_recipes}</p>
+                    <p>
+                      <span className="text-primary ">Total Recipes:</span>{" "}
+                      {number_of_recipes}
+                    </p>
                   </Col>
                   <Col md={4}>
-                    <p> Experienced: {years_of_experience} </p>
+                    <p>
+                      {" "}
+                      <span className="text-primary fw-semibold">
+                        Experienced:
+                      </span>{" "}
+                      {years_of_experience}{" "}
+                    </p>
                   </Col>
                 </Row>
               </Card.Body>
             </Card>
           </Col>
           <Col md={8}>
-            <h2 className="text-center text-secondary fw-bold mb-4">
-              Chef's Recipes
+            <h2 className="text-center text-primary fw-bold mb-4">
+              <i> {chef_name} Recipes</i>
             </h2>
-            <div className="row row-cols-3">
+            <div className="row row-col-sm-1 row-cols-lg-3">
               {loader.recipes.map((data, index) => (
                 <RecipeDetails data={data} key={index}></RecipeDetails>
               ))}
