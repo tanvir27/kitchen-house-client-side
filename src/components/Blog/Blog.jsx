@@ -1,9 +1,28 @@
-import React from "react";
-
+import React, { useRef } from "react";
+import html2pdf from "html2pdf.js";
 const Blog = () => {
+  const blogRef = useRef(null);
+
+  const handleDownload = () => {
+    const blogElement = blogRef.current;
+    const opt = {
+      margin: 1,
+      filename: "blog.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+    };
+    html2pdf().set(opt).from(blogElement).save();
+  };
+
   return (
     <div ClassName="">
-      <div className="container">
+      <div className="container " ref={blogRef}>
+        <div className="text-center my-5">
+          <button className="btn btn-primary" onClick={handleDownload}>
+            Download PDF
+          </button>
+        </div>
         <div className="mt-5">
           <h1 className="text-danger fw-bold text-center">
             {" "}
@@ -84,7 +103,6 @@ const Blog = () => {
                 </p>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
