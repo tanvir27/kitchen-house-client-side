@@ -1,7 +1,8 @@
 import React from "react";
 import { Container, Form, Button } from "react-bootstrap";
+import { FaGithub, FaGoogle, FaMailBulk } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import SocialLogin from "../SocialLogin/SocialLogin";
+
 const Login = () => {
   return (
     <div>
@@ -34,10 +35,27 @@ const Login = () => {
                 </div>
               </Form>
             </div>
-                  </div>
-                  <div>
-                      <SocialLogin></SocialLogin>
-                  </div>
+          </div>
+          <div className="container">
+            <div className="text-center mb-2">
+              <Button variant="secondary">
+                <FaMailBulk className="me-2" />
+                Sign in with Email
+              </Button>
+            </div>
+            <div className="text-center mb-2">
+              <Button variant="primary">
+                <FaGoogle className="me-2" />
+                Sign in with Google
+              </Button>
+            </div>
+            <div className="text-center">
+              <Button variant="dark">
+                <FaGithub className="me-2" />
+                Sign in with GitHub
+              </Button>
+            </div>
+          </div>
         </Container>
       </section>
     </div>
