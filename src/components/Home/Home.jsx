@@ -40,7 +40,7 @@ const Home = () => {
 
       {/* chefs section  */}
       <div className="text-center pt-4">
-        <h2 className="fw-bold py-2">Meet Our Talented Chefs</h2>
+        <h1 className="fw-bold text-secondary py-2">Meet Our Talented Chefs</h1>
       </div>
       {/* chefs section  card*/}
       <div className="row row-cols-1 row-cols-md-3 mt-2">
@@ -51,14 +51,16 @@ const Home = () => {
                 <div>
                   <img className="img-fluid" src={image} alt="" />
                 </div>
-                <h2>Name: Tanvir Hasan</h2>
+                <h2 className="text-center">Name: Tanvir Hasan</h2>
 
                 <div className="">
-                  <h5>Experience: 5years</h5> {""}
-                  <h5>Recipes: 10 </h5>
-                  <h5>Total Likes: 500</h5>
+                  <div className="d-flex justify-content-around">
+                    <p className="">Recipes: 10 </p>
+                    <p className="">Total Likes: 500</p>
+                  </div>
+                  <h5 className="text-center">Experience: 5years</h5> {""}
                 </div>
-                <div className="text-center">
+                <div className="text-center mt-3">
                   {" "}
                   <Link to="/recipe">
                     {" "}
@@ -122,7 +124,9 @@ const Home = () => {
       {/* contact us section  */}
 
       <div className="contact-us ">
-        <h1 className="text-center fw-bold text-secondary pb-4">Connect with us</h1>
+        <h1 className="text-center fw-bold text-secondary pb-4">
+          Connect with us
+        </h1>
         <Container>
           <Row className="shadow border py-2">
             <Col md={6}>
