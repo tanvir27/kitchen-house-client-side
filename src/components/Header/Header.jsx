@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { Navbar, Nav, Button, Container } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Header.css";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
 
-    
+    const navigate = useNavigate();
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = (event) => {
+      event.preventDefault();
+      logOut()
+          .then(() => {
+            navigate('/login')
+        })
+        .catch((error) => {
+          console.error(error.message);
+        });
+    };
+
 
   return (
     <div className="common-color bg-dark  py-2 mb-0 mb-lg-5">
@@ -25,7 +38,7 @@ const Header = () => {
                     ? "active-link text-decoration-none"
                     : "link text-decoration-none text-white"
                 }
-                to="/home"
+                to="/"
               >
                 Home
               </NavLink>
@@ -41,27 +54,51 @@ const Header = () => {
                 Blog
               </NavLink>
 
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "active-link text-decoration-none"
-                    : "link text-decoration-none text-white"
-                }
-                to="/login"
-              >
-                LogIn
-              </NavLink>
+              {user ? (
+                <div>
+                  <NavLink
+                    onClick={handleLogOut}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "active-link text-decoration-none"
+                        : "link text-decoration-none text-white"
+                    }
+                    to="/login"
+                  >
+                    LogOut
+                  </NavLink>
+                  <img
+                    className="img-fluid rounded-circle ms-3"
+                    src={user.photoURL}
+                    alt=""
+                    style={{ height: "40px", width: "40px" }}
+                  />
+                </div>
+              ) : (
+                <div className="">
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "active-link text-decoration-none me-3"
+                        : "link text-decoration-none text-white me-3"
+                    }
+                    to="/login"
+                  >
+                    LogIn
+                  </NavLink>
 
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "active-link text-decoration-none"
-                    : "link text-decoration-none text-white"
-                }
-                to="/register"
-              >
-                Register
-              </NavLink>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "active-link text-decoration-none"
+                        : "link text-decoration-none text-white"
+                    }
+                    to="/register"
+                  >
+                    Register
+                  </NavLink>
+                </div>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

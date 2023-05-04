@@ -1,11 +1,13 @@
 import React from "react";
 import "./Home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import image from "../../assets/food-6.png";
 import { Container, Row, Col, Image, Form, Button } from "react-bootstrap";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import ChefDetails from "../ChefDetails/ChefDetails";
 const Home = () => {
+  const loader = useLoaderData();
   return (
     <div className="container home-section">
       {/* banner section start */}
@@ -44,35 +46,9 @@ const Home = () => {
       </div>
       {/* chefs section  card*/}
       <div className="row row-cols-1 row-cols-md-3 mt-2">
-        <div className="">
-          <div class="col rounded py-3 ">
-            <div class="card shadow h-100 card-bg-color">
-              <div className="p-3">
-                <div>
-                  <img className="img-fluid" src={image} alt="" />
-                </div>
-                <h2 className="text-center">Name: Tanvir Hasan</h2>
-
-                <div className="">
-                  <div className="d-flex justify-content-around">
-                    <p className="">Recipes: 10 </p>
-                    <p className="">Total Likes: 500</p>
-                  </div>
-                  <h5 className="text-center">Experience: 5years</h5> {""}
-                </div>
-                <div className="text-center mt-3">
-                  {" "}
-                  <Link to="/recipe">
-                    {" "}
-                    <button type="button" class="btn w-75 btn-primary">
-                      View Recipes
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {loader.map((data) => (
+          <ChefDetails data={data} key={data.id}></ChefDetails>
+        ))}
       </div>
       {/* chefs section end here  */}
 
