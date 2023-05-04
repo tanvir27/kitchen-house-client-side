@@ -36,7 +36,8 @@ const Login = () => {
   const handleGoogleLogin = (event) => {
     event.preventDefault();
     googleLogin()
-      .then(() => {
+        .then(() => {
+           toast.success("Log in Successful");
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -48,7 +49,8 @@ const Login = () => {
     event.preventDefault();
     // console.log(event);
     githubLogin()
-      .then(() => {
+        .then(() => {
+           toast.success("Log in Successful");
         navigate(from, { replace: true });
       })
       .catch((error) => console.log(error.message));

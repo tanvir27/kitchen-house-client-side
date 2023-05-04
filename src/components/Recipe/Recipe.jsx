@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
 import RecipeDetails from "../RecipeDetails/RecipeDetails";
+import LazyLoad from "react-lazy-load";
 const Recipe = () => {
   const loader = useLoaderData();
   const {
@@ -19,11 +20,19 @@ const Recipe = () => {
         <Row>
           <Col className="my-auto" md={4}>
             <Card className="text-center shadow card-bg-color">
-              <Card.Img
-                className="p-3 rounded-5"
-                variant="top"
-                src={chef_picture}
-              />
+              <LazyLoad
+                offset={300}
+                threshold={0.95}
+                onContentVisible={() => {
+                  console.log("loaded!");
+                }}
+              >
+                <Card.Img
+                  className="p-3 rounded-5"
+                  variant="top"
+                  src={chef_picture}
+                />
+              </LazyLoad>
               <Card.Body>
                 <Card.Title>
                   {" "}
