@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link, useLoaderData } from "react-router-dom";
-import image from "../../assets/food-6.png";
+
 import { Container, Row, Col, Image, Form, Button } from "react-bootstrap";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import ChefDetails from "../ChefDetails/ChefDetails";

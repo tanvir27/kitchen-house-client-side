@@ -12,7 +12,6 @@ import Recipe from "./components/Recipe/Recipe.jsx";
 import AuthProvider from "./components/AuthProvider/AuthProvider";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,7 +22,9 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: () =>
-          fetch("https://kitchen-house-server-side.vercel.app/chefDetails"),
+          fetch(
+            "https://kitchen-house-server-side-tanvir27.vercel.app/chefDetails"
+          ),
       },
       {
         path: "/register",
@@ -40,8 +41,10 @@ const router = createBrowserRouter([
             <Recipe></Recipe>
           </PrivateRoute>
         ),
-        loader: ({params}) =>
-          fetch(`https://kitchen-house-server-side.vercel.app/chefDetails/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://kitchen-house-server-side-tanvir27.vercel.app/chefDetails/${params.id}`
+          ),
       },
       {
         path: "/blog",

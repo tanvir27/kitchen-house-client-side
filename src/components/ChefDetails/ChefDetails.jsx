@@ -13,8 +13,8 @@ const ChefDetails = ({ data }) => {
 
   return (
     <div className="">
-      <div class="col rounded py-3 ">
-        <div class="card shadow h-100 card-bg-color">
+      <div class="col rounded h-100 py-3 ">
+        <div class="card shadow  card-bg-color">
           <div className="p-3">
             <div>
               <img className="img-fluid" src={chef_picture} alt="" />
@@ -26,7 +26,7 @@ const ChefDetails = ({ data }) => {
                 <p className="">No of Recipes: {number_of_recipes}</p>
                 <p className="">Total Likes: {total_likes}</p>
               </div>
-              <h5 className="text-center">Experience: {years_of_experience}</h5> {""}
+              <h5 className="text-center">Experience: {years_of_experience} years</h5> {""}
             </div>
             <div className="text-center mt-3">
               {" "}
