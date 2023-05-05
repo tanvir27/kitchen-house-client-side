@@ -35,7 +35,7 @@ const Header = () => {
   }, [user]);
 
   return (
-    <div className="common-color bg-dark  py-2 mb-0 mb-lg-5">
+    <div className="common-color bg-dark  py-2 mb-0 ">
       <Navbar open={open} expand="lg">
         <Container>
           <Link to="/" className="navbar-brand text-white fw-bold fs-3">

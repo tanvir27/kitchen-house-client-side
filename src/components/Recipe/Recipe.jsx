@@ -15,7 +15,7 @@ const Recipe = () => {
     years_of_experience,
   } = loader;
   return (
-    <div>
+    <div className="bg-color py-lg-4">
       <Container>
         <Row>
           <Col className="my-auto" md={4}>

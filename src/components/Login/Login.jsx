@@ -59,7 +59,7 @@ const Login = () => {
 
   return (
     <div>
-      <section className="py-5">
+      <section className="py-5 bg-color">
         <Container>
           <div className="d-flex justify-content-center">
             <div className="col-md-6">

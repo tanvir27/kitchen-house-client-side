@@ -45,7 +45,7 @@ const Register = () => {
   };
 
   return (
-    <section className="py-5">
+    <section className="bg-color py-5">
       <Container>
         <div className="d-flex justify-content-center">
           <div className="col-md-6">
@@ -76,7 +76,7 @@ const Register = () => {
                 <Form.Control
                   type="email"
                   name="email"
-                  placeholder="Enter email"
+                  placeholder="Enter your email"
                   required
                 />
               </Form.Group>
